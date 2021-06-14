@@ -9,35 +9,37 @@
 </head>
 <body>
     <header class="bg-teal p-1 text-white">
-        <nav class="flex flex-col justify-center divide-y transition-all
+        <nav class="flex flex-col justify-center divide-y
                     lg:grid lg:grid-cols-3 lg:divide-none lg:items-center">
             <!-- #region Upper/left header-->
-            <div class="flex justify-between py-3
+            <div class="flex justify-between py-3 items-center
                         lg:px-2">
                 <a class="flex flex-row items-center" href="/index.html">
-                    <svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                    </svg>
+                    <img class="h-10 w-10 mx-3
+                                sm:h-12 sm:w-12
+                                md:h-14 md:w-14
+                                lg:h-16 lg:w-16" src="/img/logo.png" alt="logo">
                     <h1 class="text-2xl hidden md:block lg:hidden xl:block">Tyler Judson</h1>
                 </a>
 
 
-                <svg class="flex-initial h-10 w-10 lg:hidden" id="mobileMenuBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <svg class="flex-initial h-8 w-8 mx-3 lg:hidden
+                            sm:h-10 sm:w-10
+                            md:h-12 md:w-12" id="mobileMenuBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
                 </svg>
             </div>
             <!--#endregion-->         
             <!-- #region Lower/right Header -->
             
-            <div class="flex flex-col text-lg text-center gap-2 py-3 items-center text-gray-400 hidden
+            <div class="flex flex-col text-md text-center gap-2 py-2 items-center text-gray-400 hidden
+                        sm:text-lg
                         md:text-2xl
                         lg:text-xl lg:block lg:col-span-2 lg:text-right" id="mobileMenu">
                 <a class="p-2 rounded-xl bg-teal max-w-lg w-full hover:bg-teal-400 hover:text-white" href="/html/about.html">About Me</a>
                 <a class="p-2 rounded-xl bg-teal max-w-lg w-full hover:bg-teal-400 hover:text-white" href="/html/resume.html">Resume</a>
                 <a class="p-2 rounded-xl bg-teal max-w-lg w-full hover:bg-teal-400 hover:text-white" href="/html/accomplishments.html">Accomplishments</a>
-                <a class="text-white p-2 rounded-xl bg-teal-600 max-w-lg w-full hover:bg-teal-400 hover:text-white" href="/html/skills.html">Skills</a>
+                <a class="p-2 rounded-xl text-white bg-teal-600 max-w-lg w-full hover:bg-teal-400 hover:text-white" href="/html/skills.html">Skills</a>
                 <a class="text-white p-2 rounded-md bg-cyan max-w-lg w-full hover:bg-softRed hover:text-teal
                         lg:mx-2" href="/html/contact.html">Contact Me</a>
             </div>
@@ -59,5 +61,59 @@
             <!-- #endregion -->
         </nav>
     </header>
+    <section class="ml-2">
+        <div class="bg-orange-600 w-32 h-2 rounded-full mt-3"></div>
+        <h1 class="text-softRed text-5xl my-1 font-bold">Skills</h1>
+        <div class="flex flex-row gap-x-2">
+            <div class="bg-gray-300 w-10 h-2 rounded-full"></div>
+            <div class="bg-gray-300 w-28 h-2 rounded-full"></div>
+            <div class="bg-gray-300 w-full h-2 rounded-full mr-2"></div>
+        </div>
+    </section>
+    <section>
+        <div class="flex flex-col gap-4 m-3 text-white">
+            <div class="bg-gradient-to-br from-cyan-300 to-cyan-700 rounded-2xl p-6 shadow-md">
+                <h1 class="text-xl my-1 font-bold">Latest Development</h1>
+                <h3>I'm constantly developing new projects and skills.</h3>
+                <button class="bg-cyan-700 p-2 rounded-xl mt-2 font-bold tracking-wide">Start Browsing</button>
+            </div>
+            <div class="bg-gradient-to-br from-sandy-500 to-sandy-900 rounded-2xl p-6 shadow-md">
+                <h1 class="text-xl my-1 font-bold">Find me on Github</h1>
+                <h3>I put all my code and projects on Github for you to enjoy.</h3>
+                <button class="bg-sandy-900 p-2 rounded-xl mt-2 font-bold tracking-wide">Start Viewing</button>
+            </div>
+            <div class="bg-gradient-to-br from-orange-900 to-yellow-500 rounded-2xl p-6 shadow-md">
+                <h1 class="text-xl my-1 font-bold">Some title</h1>
+                <h3>A beautiful description with lots of fancy words and other things</h3>
+                <button class="bg-yellow-600 p-2 rounded-xl mt-2 font-bold tracking-wide">Start Something</button>
+            </div>
+            <div class="bg-gradient-to-br from-teal-300 to-teal-700 rounded-2xl p-6 shadow-md">
+                <h1 class="text-3xl my-1 font-bold">Some title</h1>
+                <h3 class="text-xl font-bold">A beautiful description with lots of fancy words and other things</h3>
+                <button class="bg-white p-4 rounded-xl mt-4 font-bold tracking-wide text-black text-lg">Some button</button>
+            </div>
+            <div>
+                <h1>Some title</h1>
+                <h3>Some quick description</h3>
+                <button>Some button</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div>
+            <button>Front End</button>>
+            <button>Back End</button>
+            <button>Music</button>
+            <button>Other</button>
+        </div>
+
+        <div>
+            <h1>Front End Skills</h1>
+            <h3>Here you can find projects I've developed using HTML, CSS, and Javascript.</h3>
+            <p>content</p>
+        </div>
+
+    </section>
+    
 </body>
 </html>
