@@ -2,77 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='css/tailwind.css'>
-    
-    <title>Tyler's Portfolio</title>
+    <title>Tyler Judson</title>
 </head>
 <body>
-    <header class="bg-teal p-1 text-white">
-        <nav class="flex flex-col justify-center divide-y
-                    lg:grid lg:grid-cols-3 lg:divide-none lg:items-center">
-            <!-- #region Upper/left header-->
-            <div class="flex justify-between py-3 items-center
-                        lg:px-2">
-                <a class="flex flex-row items-center" href="/index.html">
-                    <img class="h-10 w-10 mx-3
-                                sm:h-12 sm:w-12
-                                md:h-14 md:w-14
-                                lg:h-16 lg:w-16" src="/img/logo.png" alt="logo">
-                    <h1 class="text-2xl hidden md:block lg:hidden xl:block">Tyler Judson</h1>
-                </a>
-
-
-                <svg class="flex-initial h-8 w-8 mx-3 lg:hidden
-                            sm:h-10 sm:w-10
-                            md:h-12 md:w-12" id="mobileMenuBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
-                </svg>
-            </div>
-            <!--#endregion-->         
-            <!-- #region Lower/right Header -->
-            
-            <div class="flex flex-col text-md text-center gap-2 text-gray-400 hidden absolute top-16 left-0 bg-teal w-full items-center pb-5 px-5
-                        sm:text-lg sm:top-20
-                        md:text-2xl md:top-20
-                        lg:text-xl lg:block lg:col-span-2 lg:text-right lg:top-0 lg:static lg:pb-0 lg:bg-none" id="mobileMenu">
-                <a class="p-2 rounded-xl bg-teal w-full hover:bg-teal-400 hover:text-white" href="/html/about.html">About Me</a>
-                <a class="p-2 rounded-xl bg-teal w-full hover:bg-teal-400 hover:text-white" href="/html/resume.html">Resume</a>
-                <a class="p-2 rounded-xl bg-teal w-full hover:bg-teal-400 hover:text-white" href="/html/accomplishments.html">Accomplishments</a>
-                <a class="p-2 rounded-xl bg-teal w-full hover:bg-teal-400 hover:text-white" href="/html/skills.html">Skills</a>
-                <a class="text-white p-2 rounded-md bg-cyan max-w-lg w-full hover:bg-softRed hover:text-teal
-                        lg:mx-2" href="/html/contact.html">Contact Me</a>
-            </div>
-            <!-- #region Toggling Mobile Menu -->
-            <script>
-                let menuButton = document.getElementById('mobileMenuBtn');
-                let mobileMenu = document.getElementById('mobileMenu');
-
-                menuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('menuActive');
-                });
-                let closeMenuListener = addEventListener("click", (event) => {
-                    if (isVisible(mobileMenu) && !menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
-                        mobileMenu.classList.toggle("menuActive");
-                    }
-                });
-                
-                function isVisible(el) {
-                    let style = getComputedStyle(el);
-                    return (style.display != "none" && style.display != "block");
-                }
-                
-            </script>
-            <style>
-                .menuActive{
-                    display: flex;
-                }    
-            </style>
-            <!-- #endregion -->
-            <!-- #endregion -->
-        </nav>
-    </header>
-
+    <h1>Welcome</h1>
 </body>
 </html>
