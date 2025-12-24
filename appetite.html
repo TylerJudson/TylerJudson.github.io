@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Appetite - Award-winning recipe management and social networking app by Tyler Judson">
+    <meta name="author" content="Tyler Judson">
+    <title>Appetite | Tyler Judson</title>
+    <link rel="stylesheet" href="project-page.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">TJ</a>
+            <a href="index.html#projects" class="back-link">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-container">
+            <img src="https://user-images.githubusercontent.com/74631372/222922789-1f93adb2-996a-4ccb-b9cd-5878045a3017.png" alt="Appetite App Icon" class="app-icon">
+            <h1 class="project-title">Appetite</h1>
+            <p class="project-subtitle">
+                Cross-platform recipe management and social networking application
+            </p>
+            <div class="project-badge-container">
+                <span class="hero-badge badge-award">1st Place - Utah TSA State Competition</span>
+                <span class="hero-badge badge-status">Cross-Platform</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Try Appetite Section - Prominent CTA -->
+    <section class="content-section cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Experience Appetite</h2>
+            <p class="cta-description">
+                Explore the award-winning app through our presentation and live demos
+            </p>
+            <div class="cta-buttons">
+                <a href="https://1drv.ms/v/s!Aq7NIYMqp1_7gid5Hh8xyyaQJgDy?e=gKBRBA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    Watch Presentation
+                </a>
+                <a href="https://github.com/TylerJudson/Appetite" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    View on GitHub
+                </a>
+            </div>
+
+            <!-- Mobile Demo Access -->
+            <div class="demo-access">
+                <p class="demo-subtitle">Try the live app on your device</p>
+                <div class="demo-buttons">
+                    <button class="btn btn-demo btn-ios" onclick="openModal('ios')">
+                        <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <div class="btn-demo-content">
+                            <span class="btn-demo-label">Try on iOS</span>
+                            <span class="btn-demo-sublabel">Scan QR or copy link</span>
+                        </div>
+                    </button>
+                    <button class="btn btn-demo btn-android" onclick="openModal('android')">
+                        <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.28-.55-.38-.84-.22-.3.16-.42.54-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/>
+                        </svg>
+                        <div class="btn-demo-content">
+                            <span class="btn-demo-label">Try on Android</span>
+                            <span class="btn-demo-sublabel">Scan QR or copy link</span>
+                        </div>
+                    </button>
+                </div>
+                <p class="demo-note">Requires Expo Go app</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- iOS Modal -->
+    <div id="ios-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('ios')">&times;</span>
+            <h3 class="modal-title">Open Appetite on iOS</h3>
+            <p class="modal-instructions">Scan the QR code with your camera or copy the link below</p>
+
+            <div class="qr-code-container">
+                <img src="https://user-images.githubusercontent.com/74631372/222916936-ed47cf25-47b1-487c-8050-a791fd0efc16.svg" alt="iOS QR Code" class="qr-code">
+            </div>
+
+            <div class="link-container">
+                <input type="text" id="ios-link" value="exp://u.expo.dev/update/0753c532-ba94-463e-89fa-db8de819e0da" readonly class="link-input">
+                <button onclick="copyLink('ios')" class="btn btn-copy">Copy Link</button>
+            </div>
+
+            <p class="modal-note">
+                <strong>Note:</strong> You'll need the <a href="https://expo.dev/client" target="_blank" rel="noopener noreferrer">Expo Go app</a> installed on your iOS device first.
+            </p>
+        </div>
+    </div>
+
+    <!-- Android Modal -->
+    <div id="android-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('android')">&times;</span>
+            <h3 class="modal-title">Open Appetite on Android</h3>
+            <p class="modal-instructions">Scan the QR code with your camera or copy the link below</p>
+
+            <div class="qr-code-container">
+                <img src="https://user-images.githubusercontent.com/74631372/222917092-dc5d6a6b-90a6-4cfb-95c9-66f3239efc51.svg" alt="Android QR Code" class="qr-code">
+            </div>
+
+            <div class="link-container">
+                <input type="text" id="android-link" value="exp://u.expo.dev/update/f5343585-50c9-4432-a62a-72eae7917dac" readonly class="link-input">
+                <button onclick="copyLink('android')" class="btn btn-copy">Copy Link</button>
+            </div>
+
+            <p class="modal-note">
+                <strong>Note:</strong> You'll need the <a href="https://expo.dev/client" target="_blank" rel="noopener noreferrer">Expo Go app</a> installed on your Android device first.
+            </p>
+        </div>
+    </div>
+
+    <!-- Description Section -->
+    <section class="content-section">
+        <h2 class="section-title">About the Project</h2>
+        <p class="section-description">
+            Appetite is a fully functional, cross-platform application that seamlessly combines recipe management
+            with social networking functionality. Winner of the 2023 Utah TSA State Software Development Competition,
+            Appetite provides users with a modern, intuitive interface to store, discover, and share their favorite recipes
+            while connecting with a community of food enthusiasts.
+        </p>
+        <p class="section-description">
+            Built with performance and user experience as top priorities, Appetite works flawlessly on iOS, Android,
+            and web platforms, delivering a consistent, fast experience across all devices.
+        </p>
+    </section>
+
+    <!-- Recognition Section -->
+    <section class="content-section">
+        <h2 class="section-title">Recognition & Awards</h2>
+        <div class="award-highlight">
+            <h3 class="award-title">1st Place Winner</h3>
+            <p class="award-description">
+                2023 Utah TSA State Software Development Competition
+            </p>
+            <p class="section-description">
+                Appetite was recognized for excellence in software design, functionality, and user experience.
+                The project demonstrated strong technical implementation, innovative features, and polished
+                user interface design that set it apart from competing submissions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section - Professional Design -->
+    <section class="content-section">
+        <h2 class="section-title">Core Capabilities</h2>
+        <div class="professional-features">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Recipe Management System</h3>
+                <p class="pro-feature-description">
+                    Comprehensive recipe storage and organization with advanced search capabilities.
+                    Users can create, edit, and categorize recipes with detailed ingredient lists,
+                    preparation steps, and nutritional information.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Social Network Integration</h3>
+                <p class="pro-feature-description">
+                    Built-in social features enable users to build profiles, follow other users,
+                    and share recipes within a community. Real-time feed displays recent activity
+                    and trending recipes from connected users.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Discovery & Search</h3>
+                <p class="pro-feature-description">
+                    Intelligent recipe discovery system with filtering, tagging, and recommendation
+                    algorithms. Users can explore new recipes based on ingredients, cuisine type,
+                    dietary restrictions, and preparation time.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Cross-Platform Architecture</h3>
+                <p class="pro-feature-description">
+                    Native mobile applications for iOS and Android with web support. Seamless
+                    data synchronization ensures recipes and user data remain consistent across
+                    all platforms and devices.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Performance Optimization</h3>
+                <p class="pro-feature-description">
+                    Engineered for speed with efficient data caching, lazy loading, and optimized
+                    rendering. The application maintains smooth performance even with large recipe
+                    collections and extensive social feeds.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Modern User Interface</h3>
+                <p class="pro-feature-description">
+                    Clean, intuitive design following platform-specific UI guidelines. Responsive
+                    layouts adapt seamlessly to different screen sizes while maintaining consistent
+                    branding and user experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="content-section">
+        <h2 class="section-title">Technical Implementation</h2>
+        <p class="section-description">
+            Built with modern technologies prioritizing developer experience, code maintainability,
+            and scalable architecture.
+        </p>
+        <div class="tech-stack">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">Expo</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">EAS Build</span>
+            <span class="tech-tag">Yarn</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>2025 Tyler Judson | <a href="index.html" style="color: var(--accent-primary);">Back to Portfolio</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        function openModal(platform) {
+            const modal = document.getElementById(platform + '-modal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(platform) {
+            const modal = document.getElementById(platform + '-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Copy link functionality
+        function copyLink(platform) {
+            const linkInput = document.getElementById(platform + '-link');
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999); // For mobile devices
+
+            navigator.clipboard.writeText(linkInput.value).then(() => {
+                // Visual feedback
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.backgroundColor = '#10b981';
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

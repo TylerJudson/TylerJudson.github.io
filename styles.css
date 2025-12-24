@@ -546,6 +546,13 @@ a:hover {
     margin-bottom: 3rem;
 }
 
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all var(--transition-base);
+}
+
 .project-card {
     background-color: var(--bg-tertiary);
     padding: 2rem;
@@ -554,12 +561,26 @@ a:hover {
     transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
-.project-card:hover {
+.project-card-link:hover .project-card {
     border-color: var(--accent-primary);
     box-shadow: var(--shadow-lg);
     transform: translateY(-6px);
+}
+
+.project-learn-more {
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+}
+
+.project-card-link:hover .project-learn-more {
+    color: var(--accent-light);
+    transform: translateX(4px);
 }
 
 .project-header {
