@@ -7,6 +7,190 @@
     <meta name="author" content="Tyler Judson">
     <title>VitalicX | Tyler Judson</title>
     <link rel="stylesheet" href="project-page.css">
+    <style>
+        /* Legal Content Styles */
+        .legal-content {
+            margin-top: 2rem;
+        }
+
+        .collapsible-section {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-tertiary);
+            transition: all 0.3s ease;
+        }
+
+        .collapsible-section:hover {
+            border-color: var(--accent-primary);
+        }
+
+        .collapsible-header {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.02));
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collapsible-header::after {
+            content: '▼';
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .collapsible-header.active::after {
+            transform: rotate(-180deg);
+            color: var(--accent-primary);
+        }
+
+        .collapsible-header:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
+            color: var(--text-primary);
+        }
+
+        .collapsible-header.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(37, 99, 235, 0.08));
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: var(--bg-secondary);
+        }
+
+        .collapsible-content p,
+        .collapsible-content ul,
+        .collapsible-content ol {
+            padding: 0 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .collapsible-content p:first-child {
+            padding-top: 1.5rem;
+        }
+
+        .collapsible-content p:last-child,
+        .collapsible-content ul:last-child,
+        .collapsible-content ol:last-child {
+            padding-bottom: 1.5rem;
+        }
+
+        .collapsible-content ul,
+        .collapsible-content ol {
+            margin-left: 2rem;
+        }
+
+        .collapsible-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .collapsible-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Contact Form Styles */
+        .contact-form-container {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .contact-form {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            text-align: center;
+            min-height: 1.5rem;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .collapsible-header {
+                font-size: 1rem;
+                padding: 1rem 1.25rem;
+            }
+
+            .collapsible-content p,
+            .collapsible-content ul,
+            .collapsible-content ol {
+                padding: 0 1.25rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -22,13 +206,13 @@
     <!-- Hero Section -->
     <section class="project-hero">
         <div class="hero-container">
-            <div class="app-icon-placeholder">💪</div>
+            <img src="vitalicx-icon.png" alt="VitalicX App Icon" class="app-icon">
             <h1 class="project-title">VitalicX</h1>
             <p class="project-subtitle">
                 Your comprehensive fitness and nutrition companion for iOS
             </p>
             <div class="project-badge-container">
-                <span class="hero-badge badge-status">Coming Soon to App Store</span>
+                <span class="hero-badge badge-status">Available on App Store</span>
                 <span class="hero-badge badge-status">iOS</span>
             </div>
         </div>
@@ -49,71 +233,78 @@
         </p>
     </section>
 
+    <!-- Download Section -->
+    <section class="content-section cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Download VitalicX</h2>
+            <p class="cta-description">
+                VitalicX is now available on the iOS App Store. Transform your
+                fitness and nutrition journey with a premium, native iOS experience.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-disabled" onclick="return false;">
+                    Download on the App Store
+                </a>
+            </div>
+        </div>
+    </section>
     <!-- Features Section -->
     <section class="content-section">
-        <h2 class="section-title">Comprehensive Features</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🍎</div>
-                <h3 class="feature-title">Nutrition Tracking</h3>
-                <p class="feature-description">
+        <h2 class="section-title">Core Capabilities</h2>
+        <div class="professional-features">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Nutrition Tracking</h3>
+                <p class="pro-feature-description">
                     Track your meals with precision using our integrated barcode scanner and comprehensive
                     nutrition database. Access USDA FoodData Central and OpenFoodFacts for accurate nutritional
                     information on thousands of foods.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏋️</div>
-                <h3 class="feature-title">Exercise Logging</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Exercise Logging</h3>
+                <p class="pro-feature-description">
                     Plan and track your workouts with customizable routines, exercise libraries, and detailed
                     logging. Create workout plans that fit your goals and track your progress over time.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Advanced Analytics</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Advanced Analytics</h3>
+                <p class="pro-feature-description">
                     Visualize your progress with comprehensive analytics and insights. Track trends, identify
                     patterns, and make data-driven decisions about your health and fitness journey.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📖</div>
-                <h3 class="feature-title">Recipe Management</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Recipe Management</h3>
+                <p class="pro-feature-description">
                     Build and manage your recipe collection with detailed nutritional breakdowns. Create custom
                     recipes, save favorites, and integrate them seamlessly into your meal planning.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📅</div>
-                <h3 class="feature-title">Meal Planning</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Meal Planning</h3>
+                <p class="pro-feature-description">
                     Plan your meals ahead of time with our intuitive meal planner. Schedule recipes, track
                     daily nutrition targets, and stay on top of your dietary goals.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚖️</div>
-                <h3 class="feature-title">Weight Tracking</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Weight Tracking</h3>
+                <p class="pro-feature-description">
                     Monitor your weight progress over time with detailed charts and trends. Set goals, track
                     milestones, and visualize your journey to your target weight.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">Goal Setting</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Goal Setting</h3>
+                <p class="pro-feature-description">
                     Set personalized fitness and nutrition goals tailored to your needs. Track your progress
                     and stay motivated with visual feedback and achievements.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3 class="feature-title">Privacy First</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Privacy First</h3>
+                <p class="pro-feature-description">
                     Your data stays on your device with SwiftData. No cloud sync means complete privacy and
                     offline access to all your health information.
                 </p>
@@ -146,35 +337,31 @@
     <!-- Architecture Highlights -->
     <section class="content-section">
         <h2 class="section-title">Engineering Excellence</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🏗️</div>
-                <h3 class="feature-title">Clean Architecture</h3>
-                <p class="feature-description">
+        <div class="professional-features">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Clean Architecture</h3>
+                <p class="pro-feature-description">
                     Built with a 3-layer MVVM architecture ensuring clear separation of concerns,
                     testability, and maintainability throughout the codebase.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Optimized Performance</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Optimized Performance</h3>
+                <p class="pro-feature-description">
                     Intelligent caching strategies, computed properties for real-time calculations,
                     and efficient data management for smooth, responsive performance.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3 class="feature-title">Data Integrity</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Data Integrity</h3>
+                <p class="pro-feature-description">
                     Single source of truth design with cascade delete patterns and comprehensive
                     validation ensuring your data is always accurate and consistent.
                 </p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🧪</div>
-                <h3 class="feature-title">Thoroughly Tested</h3>
-                <p class="feature-description">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Thoroughly Tested</h3>
+                <p class="pro-feature-description">
                     Comprehensive test suite covering models, services, and view models using
                     Swift Testing framework for reliability and quality assurance.
                 </p>
@@ -182,30 +369,797 @@
         </div>
     </section>
 
-    <!-- Coming Soon Section -->
-    <section class="content-section cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title">Coming to the App Store</h2>
-            <p class="cta-description">
-                VitalicX is launching soon on the iOS App Store. Get ready to transform your
-                fitness and nutrition journey with a premium, native iOS experience.
-            </p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-disabled" onclick="return false;">
-                    Download on the App Store (Coming Soon)
+
+
+    <!-- Legal & Contact Section -->
+    <section id="legal-contact" class="content-section">
+        <h2 class="section-title">Legal & Contact</h2>
+        <p class="section-description">Review our policies or get in touch</p>
+
+        <div class="demo-buttons" style="margin-bottom: 3rem;">
+            <button class="btn btn-demo" onclick="openLegalModal('privacy')" style="width: 100%; max-width: 400px;">
+                <div class="btn-demo-content">
+                    <span class="btn-demo-label">Privacy Policy</span>
+                    <span class="btn-demo-sublabel">View our data protection practices</span>
+                </div>
+            </button>
+            <button class="btn btn-demo" onclick="openLegalModal('terms')" style="width: 100%; max-width: 400px;">
+                <div class="btn-demo-content">
+                    <span class="btn-demo-label">Terms of Service</span>
+                    <span class="btn-demo-sublabel">Read our terms and conditions</span>
+                </div>
+            </button>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-description">Have questions or feedback about VitalicX?</p>
+            <div class="cta-buttons" style="justify-content: flex-start;">
+                <a href="mailto:tylerjudson223@gmail.com?subject=VitalicX%20Inquiry" class="btn btn-primary">
+                    Contact Us
                 </a>
             </div>
-            <p class="section-description" style="margin-top: 1.5rem;">
-                Stay tuned for the official launch!
-            </p>
         </div>
     </section>
 
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
+            <span class="modal-close" onclick="closeLegalModal('privacy')">&times;</span>
+            <h2 class="modal-title">Privacy Policy</h2>
+            <p class="modal-instructions">Last Updated: January 2, 2026</p>
+
+            <div class="legal-content">
+            <div class="collapsible-section">
+                <button class="collapsible-header">Introduction</button>
+                <div class="collapsible-content">
+                    <p>VitalicX is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use the VitalicX app.</p>
+                    <p>By using VitalicX, you agree to the collection and use of information in accordance with this Privacy Policy. We respect your privacy and are committed to transparency about our data practices.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Data We Collect</button>
+                <div class="collapsible-content">
+                    <p><strong>PERSONAL INFORMATION:</strong></p>
+                    <ul>
+                        <li>Name (first and last)</li>
+                        <li>Email address (optional)</li>
+                        <li>Profile picture (optional, stored locally)</li>
+                        <li>Timezone</li>
+                    </ul>
+                    <p><strong>HEALTH & BIOMETRIC DATA:</strong></p>
+                    <ul>
+                        <li>Weight measurements with timestamps</li>
+                        <li>Height</li>
+                        <li>Age/Date of birth</li>
+                        <li>Gender</li>
+                        <li>Activity level</li>
+                        <li>Body Mass Index (BMI - calculated)</li>
+                    </ul>
+                    <p><strong>NUTRITION TRACKING DATA:</strong></p>
+                    <ul>
+                        <li>Food consumption logs (meals, quantities, timestamps)</li>
+                        <li>Custom recipes you create</li>
+                        <li>Recipe ratings and notes</li>
+                        <li>Daily calorie and macronutrient tracking</li>
+                        <li>Meal timing and patterns</li>
+                        <li>Food search history</li>
+                    </ul>
+                    <p><strong>EXERCISE & FITNESS DATA:</strong></p>
+                    <ul>
+                        <li>Workout sessions (exercises, sets, reps, weight)</li>
+                        <li>Workout routines you create</li>
+                        <li>Fitness objectives and goals</li>
+                        <li>Preferred workout times</li>
+                        <li>Fitness level self-assessment</li>
+                        <li>Workout frequency preferences</li>
+                        <li>Exercise performance history</li>
+                    </ul>
+                    <p><strong>APP USAGE DATA:</strong></p>
+                    <ul>
+                        <li>User preferences and settings</li>
+                        <li>Recently used foods and recipes</li>
+                        <li>App interactions and navigation patterns</li>
+                    </ul>
+                    <p><strong>AUTOMATICALLY COLLECTED DATA:</strong></p>
+                    <ul>
+                        <li>Device timezone</li>
+                        <li>App version</li>
+                        <li>Camera access (for barcode scanning only, when granted)</li>
+                    </ul>
+                    <p>We do NOT collect your location, browsing history outside the app, contacts, or any data from other apps.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">How We Use Your Data</button>
+                <div class="collapsible-content">
+                    <p>We use your data exclusively to provide and improve app functionality:</p>
+                    <ul>
+                        <li>Nutrition Tracking: Calculate daily nutrition totals and track progress toward goals</li>
+                        <li>Health Insights: Generate personalized nutrition recommendations based on your biometric data</li>
+                        <li>Workout Planning: Create and track exercise routines and progress</li>
+                        <li>Food Database Searches: Query external databases (USDA, Open Food Facts) to provide nutrition information</li>
+                        <li>App Personalization: Remember your preferences and frequently used items</li>
+                        <li>Feature Improvement: Understand how features are used to improve the app</li>
+                    </ul>
+                    <p>We do NOT use your data for:</p>
+                    <ul>
+                        <li>✗ Advertising or marketing</li>
+                        <li>✗ Selling to third parties</li>
+                        <li>✗ User profiling for commercial purposes</li>
+                        <li>✗ Tracking across other apps or websites</li>
+                        <li>✗ Any purpose other than app functionality</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Legal Basis for Processing (GDPR)</button>
+                <div class="collapsible-content">
+                    <p>Under the General Data Protection Regulation (GDPR), we process your data based on:</p>
+                    <ul>
+                        <li>Consent: You explicitly provide health and nutrition data for tracking purposes when you use the app's features</li>
+                        <li>Contract Performance: Processing is necessary to provide the app functionality you requested</li>
+                        <li>Legitimate Interest: Improving app features and user experience based on aggregated, anonymized usage patterns</li>
+                    </ul>
+                    <p>You may withdraw your consent at any time by deleting your data or uninstalling the app.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Data Storage & Location</button>
+                <div class="collapsible-content">
+                    <p><strong>LOCAL STORAGE:</strong></p>
+                    <p>All your personal data, health information, nutrition logs, and workout history are stored LOCALLY on your device using Apple's SwiftData framework with SQLite backend. This data:</p>
+                    <ul>
+                        <li>Never leaves your device</li>
+                        <li>Is not accessible to us or any third parties</li>
+                        <li>Is protected by your device's passcode, Touch ID, or Face ID</li>
+                        <li>Is encrypted when your device is locked (iOS native encryption)</li>
+                    </ul>
+                    <p><strong>CLOUD SYNC:</strong></p>
+                    <p>We do NOT currently offer cloud synchronization. Your data remains exclusively on your device.</p>
+                    <p>We cannot access, view, retrieve, or recover your data. If you delete the app or lose your device, your data cannot be recovered unless you've created a backup through your device's backup system.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Data Sharing & Third-Party Services</button>
+                <div class="collapsible-content">
+                    <p>We do NOT share, sell, rent, or trade your personal information with third parties.</p>
+                    <p><strong>THIRD-PARTY SERVICES WE USE:</strong></p>
+                    <p><strong>1. USDA FoodData Central API</strong></p>
+                    <ul>
+                        <li>Purpose: Food nutrition database searches</li>
+                        <li>Data Shared: Search keywords and food database IDs only</li>
+                        <li>Data NOT Shared: Your name, email, health data, meal logs, or any personal information</li>
+                        <li>Privacy Policy: https://www.usda.gov/privacy-policy</li>
+                    </ul>
+                    <p><strong>2. Open Food Facts API</strong></p>
+                    <ul>
+                        <li>Purpose: Barcode product lookups</li>
+                        <li>Data Shared: Barcode numbers only (when you scan a product)</li>
+                        <li>Data NOT Shared: Your name, email, health data, meal logs, or any personal information</li>
+                        <li>License: Open Database License (ODbL)</li>
+                        <li>Privacy Policy: https://world.openfoodfacts.org/privacy</li>
+                    </ul>
+                    <p><strong>3. Apple StoreKit</strong></p>
+                    <ul>
+                        <li>Purpose: In-app purchase and subscription processing</li>
+                        <li>Data Shared: Purchase transactions (managed entirely by Apple)</li>
+                        <li>Privacy Policy: https://www.apple.com/legal/privacy/</li>
+                    </ul>
+                    <p><strong>4. Foundation Foods Database</strong></p>
+                    <ul>
+                        <li>Type: Local database bundled in the app (USDA data)</li>
+                        <li>Data Shared: None - entirely local, no network requests</li>
+                    </ul>
+                    <p>We do NOT use:</p>
+                    <ul>
+                        <li>✗ Analytics services (Google Analytics, Mixpanel, etc.)</li>
+                        <li>✗ Crash reporting tools (Crashlytics, Sentry, etc.)</li>
+                        <li>✗ Advertising networks</li>
+                        <li>✗ Social media tracking</li>
+                        <li>✗ User profiling services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">International Data Transfers</button>
+                <div class="collapsible-content">
+                    <p>When you use external food database features, minimal non-personal data is transferred internationally:</p>
+                    <ul>
+                        <li>USDA FoodData Central: Data sent to US government servers (search queries and food IDs only)</li>
+                        <li>Open Food Facts: Data sent to servers in France (barcode numbers only)</li>
+                    </ul>
+                    <p>NO personal health data, meal logs, or identifying information is ever transmitted to these services. Only search terms and product identifiers are sent to retrieve nutrition information.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Your Privacy Rights</button>
+                <div class="collapsible-content">
+                    <p><strong>RIGHTS FOR ALL USERS:</strong></p>
+                    <ul>
+                        <li>✓ Access: View all your data within the app at any time</li>
+                        <li>✓ Rectification: Edit and correct your information directly in Settings</li>
+                        <li>✓ Erasure: Delete specific entries or your entire account</li>
+                        <li>✓ Data Portability: Export your data in JSON or CSV format (Settings > Data Management)</li>
+                        <li>✓ Restrict Processing: Stop using tracking features at any time</li>
+                    </ul>
+                    <p><strong>CALIFORNIA RESIDENTS (CCPA/CPRA):</strong></p>
+                    <ul>
+                        <li>✓ Right to know what personal information is collected, used, shared, or sold</li>
+                        <li>✓ Right to opt-out of sale of personal information (Note: We do NOT sell your data)</li>
+                        <li>✓ Right to deletion of personal information</li>
+                        <li>✓ Right to non-discrimination for exercising your privacy rights</li>
+                        <li>✓ Right to correct inaccurate personal information</li>
+                    </ul>
+                    <p><strong>EU/EEA RESIDENTS (GDPR):</strong></p>
+                    <ul>
+                        <li>✓ Right to lodge a complaint with your local supervisory authority</li>
+                        <li>✓ Right to withdraw consent at any time</li>
+                        <li>✓ Right to object to data processing</li>
+                        <li>✓ Right to data portability in a structured, machine-readable format</li>
+                        <li>✓ Right to restriction of processing</li>
+                    </ul>
+                    <p>To exercise these rights:</p>
+                    <ul>
+                        <li>Data Access: View in app Settings</li>
+                        <li>Data Export: Settings > Data Management > Export Data</li>
+                        <li>Data Deletion: Settings > Account > Delete Account</li>
+                        <li>Privacy Questions: Contact tylerjudson223@gmail.com</li>
+                    </ul>
+                    <p>We will respond to privacy requests within 30 days (GDPR) or 45 days (CCPA).</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Data Retention</button>
+                <div class="collapsible-content">
+                    <ul>
+                        <li>Active Account: Data retained locally on your device indefinitely while you use the app</li>
+                        <li>Deleted Data: Permanently removed from your device immediately upon deletion</li>
+                        <li>Account Deletion: All data permanently deleted within 30 days of account deletion request</li>
+                        <li>App Uninstall: All local data is removed when you uninstall the app (unless preserved by device backup)</li>
+                    </ul>
+                    <p>We do NOT retain your data on any servers because all data is stored locally on your device.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Security Measures</button>
+                <div class="collapsible-content">
+                    <p>We implement multiple security measures to protect your data:</p>
+                    <ul>
+                        <li>Encryption: All health data encrypted when your device is locked (iOS native encryption)</li>
+                        <li>Local Storage: Data stored only on your device using Apple's secure SwiftData framework</li>
+                        <li>Secure APIs: HTTPS-only connections to external food databases</li>
+                        <li>No Cloud Storage: Your health data never leaves your device</li>
+                        <li>Biometric Protection: Data protected by your device passcode, Touch ID, or Face ID</li>
+                        <li>Transaction Verification: In-app purchases verified using StoreKit 2 cryptographic signatures</li>
+                        <li>API Key Protection: External API keys secured via build-time configuration</li>
+                        <li>No Remote Access: We cannot access your data remotely under any circumstances</li>
+                    </ul>
+                    <p>While we implement strong security measures, no method of electronic storage is 100% secure. You are responsible for maintaining the security of your device.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Camera Permissions</button>
+                <div class="collapsible-content">
+                    <p>We request camera access only for barcode scanning to quickly add foods to your nutrition log.</p>
+                    <p>We do NOT:</p>
+                    <ul>
+                        <li>Record or store camera footage</li>
+                        <li>Capture photos beyond barcode recognition</li>
+                        <li>Use camera for any purpose other than barcode scanning</li>
+                        <li>Share camera data with third parties</li>
+                    </ul>
+                    <p>You can deny camera access and manually search for foods instead. Camera access can be revoked at any time in your device Settings > VitalicX > Camera.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Payment Information</button>
+                <div class="collapsible-content">
+                    <p>VitalicX offers optional in-app subscriptions (Pro and X tiers). Payment processing is handled entirely by Apple through the App Store.</p>
+                    <p>We do NOT:</p>
+                    <ul>
+                        <li>Collect or store credit card information</li>
+                        <li>Access your payment methods</li>
+                        <li>See your billing address or payment details</li>
+                    </ul>
+                    <p>Apple's privacy policy governs all payment data: https://www.apple.com/legal/privacy/</p>
+                    <p>We only receive:</p>
+                    <ul>
+                        <li>Subscription status (active/expired/cancelled)</li>
+                        <li>Subscription tier (Free/Pro/X)</li>
+                        <li>Anonymous transaction verification tokens</li>
+                        <li>Purchase timestamps</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Children's Privacy (COPPA)</button>
+                <div class="collapsible-content">
+                    <p>VitalicX is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+                    <p>If you are a parent or guardian and believe your child under 13 has provided us with personal information, please contact us immediately at tylerjudson223@gmail.com, and we will assist with deletion.</p>
+                    <p>For users aged 13-16 in the EU/EEA, we require parental consent where mandated by applicable law.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Cookies & Tracking Technologies</button>
+                <div class="collapsible-content">
+                    <p>VitalicX does NOT use:</p>
+                    <ul>
+                        <li>Cookies</li>
+                        <li>Web beacons</li>
+                        <li>Tracking pixels</li>
+                        <li>Third-party analytics</li>
+                        <li>Advertising identifiers</li>
+                        <li>Cross-site tracking</li>
+                        <li>Fingerprinting techniques</li>
+                    </ul>
+                    <p>We only use local device storage (SwiftData/SQLite) for core app functionality.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Do Not Sell My Personal Information (CCPA)</button>
+                <div class="collapsible-content">
+                    <p>VitalicX does NOT sell, rent, or trade your personal information to third parties for monetary or other valuable consideration.</p>
+                    <p>We have NOT sold personal information in the past 12 months, nor do we have any plans to do so in the future.</p>
+                    <p>As a California resident, you have the right to opt-out of the sale of personal information, but this right is not applicable to VitalicX because we do not engage in such sales.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Changes to This Privacy Policy</button>
+                <div class="collapsible-content">
+                    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or app features.</p>
+                    <p>We will notify you of material changes by:</p>
+                    <ul>
+                        <li>Displaying a prominent notice in the app</li>
+                        <li>Sending an email notification (if you provided an email address)</li>
+                        <li>Updating the "Last Updated" date at the top of this policy</li>
+                    </ul>
+                    <p>We encourage you to review this Privacy Policy periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+                    <p>For significant changes that materially affect your rights, we will seek your explicit consent before the changes take effect.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Contact Us</button>
+                <div class="collapsible-content">
+                    <p>For privacy questions, data requests, or to exercise your rights, please contact us:</p>
+                    <p>Email: tylerjudson223@gmail.com<br>
+                    Response Time: Within 30 days (GDPR) or 45 days (CCPA)</p>
+                    <p>For EU/EEA residents, you have the right to lodge a complaint with your local data protection supervisory authority if you believe we have not adequately addressed your privacy concerns.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
+            <span class="modal-close" onclick="closeLegalModal('terms')">&times;</span>
+            <h2 class="modal-title">Terms of Service</h2>
+            <p class="modal-instructions">Last Updated: January 2, 2026</p>
+
+            <div class="legal-content">
+            <div class="collapsible-section">
+                <button class="collapsible-header">Acceptance of Terms</button>
+                <div class="collapsible-content">
+                    <p>By downloading, installing, or using VitalicX ("the App"), you agree to be bound by these Terms of Service ("Terms") and all applicable laws and regulations.</p>
+                    <p>If you do not agree with any part of these Terms, you must not use the App. Your continued use of the App constitutes acceptance of these Terms and any future modifications.</p>
+                    <p>These Terms apply to all users of the App, including users of the Free tier and subscribers to Pro or X tiers.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Use License</button>
+                <div class="collapsible-content">
+                    <p><strong>GRANT OF LICENSE:</strong></p>
+                    <p>VitalicX grants you a personal, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes, subject to these Terms.</p>
+                    <p><strong>RESTRICTIONS:</strong></p>
+                    <p>You may NOT:</p>
+                    <ul>
+                        <li>Redistribute, sell, rent, lease, or sublicense the App</li>
+                        <li>Modify, reverse engineer, decompile, or disassemble the App</li>
+                        <li>Remove or alter any copyright, trademark, or proprietary notices</li>
+                        <li>Use the App for any illegal or unauthorized purpose</li>
+                        <li>Attempt to gain unauthorized access to any part of the App or its systems</li>
+                        <li>Use the App in any way that could damage, disable, or impair the App</li>
+                        <li>Copy or reproduce any part of the App's design, features, or functionality</li>
+                        <li>Create derivative works based on the App</li>
+                    </ul>
+                    <p><strong>TERMINATION:</strong></p>
+                    <p>This license is effective until terminated. Your rights under this license will terminate automatically without notice if you fail to comply with any term of these Terms.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">User Account and Data</button>
+                <div class="collapsible-content">
+                    <p><strong>ACCOUNT RESPONSIBILITY:</strong></p>
+                    <p>You are responsible for:</p>
+                    <ul>
+                        <li>Maintaining the security of your device and account credentials</li>
+                        <li>All activities that occur through your account</li>
+                        <li>The accuracy and completeness of information you provide</li>
+                        <li>Compliance with these Terms when using the App</li>
+                    </ul>
+                    <p><strong>USER CONTENT:</strong></p>
+                    <ul>
+                        <li>You retain all ownership rights to content you create (recipes, meal plans, workout routines)</li>
+                        <li>You are solely responsible for the accuracy of all data you enter</li>
+                        <li>You grant VitalicX a limited license to store and display your content for the purpose of providing App functionality</li>
+                        <li>We do not claim ownership of your personal data or user-generated content</li>
+                    </ul>
+                    <p><strong>DATA BACKUP:</strong></p>
+                    <ul>
+                        <li>It is your responsibility to back up your data using your device's backup features</li>
+                        <li>We are not responsible for data loss due to device failure, app deletion, or other circumstances</li>
+                        <li>Cloud sync is not currently available; data remains local to your device</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Subscription Terms</button>
+                <div class="collapsible-content">
+                    <p><strong>SUBSCRIPTION TIERS:</strong></p>
+                    <p>VitalicX offers the following subscription tiers:</p>
+                    <ul>
+                        <li>Free: Basic features with limited functionality</li>
+                        <li>Pro: Advanced features including detailed analytics and unlimited recipes</li>
+                        <li>X: All Pro features plus premium workout planning and advanced insights</li>
+                    </ul>
+                    <p><strong>PAYMENT AND BILLING:</strong></p>
+                    <ul>
+                        <li>Subscriptions are processed through Apple's App Store</li>
+                        <li>Payment will be charged to your iTunes Account at confirmation of purchase</li>
+                        <li>Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current period</li>
+                        <li>Your account will be charged for renewal within 24 hours prior to the end of the current period</li>
+                        <li>Subscription pricing may be subject to change with 30 days advance notice</li>
+                    </ul>
+                    <p><strong>MANAGING SUBSCRIPTIONS:</strong></p>
+                    <ul>
+                        <li>Subscriptions may be managed and auto-renewal turned off by going to your Account Settings after purchase</li>
+                        <li>Any unused portion of a free trial period, if offered, will be forfeited when you purchase a subscription</li>
+                    </ul>
+                    <p><strong>CANCELLATION:</strong></p>
+                    <ul>
+                        <li>You may cancel your subscription at any time through your iTunes Account settings</li>
+                        <li>Cancellation takes effect at the end of the current billing period</li>
+                        <li>You will retain access to premium features until the end of the paid period</li>
+                        <li>No refunds will be provided for partial subscription periods</li>
+                    </ul>
+                    <p><strong>REFUNDS:</strong></p>
+                    <ul>
+                        <li>Refund requests are handled according to Apple's standard refund policy</li>
+                        <li>Contact Apple Support for refund inquiries</li>
+                        <li>We cannot process refunds directly as all payments are managed by Apple</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Health Information Disclaimer</button>
+                <div class="collapsible-content">
+                    <p><strong>EDUCATIONAL PURPOSES ONLY:</strong></p>
+                    <p>VitalicX provides nutritional and fitness information for general educational and informational purposes only. The App is NOT:</p>
+                    <ul>
+                        <li>A medical device</li>
+                        <li>A substitute for professional medical advice, diagnosis, or treatment</li>
+                        <li>Intended to diagnose, treat, cure, or prevent any disease or health condition</li>
+                        <li>A replacement for consultation with qualified healthcare professionals</li>
+                    </ul>
+                    <p><strong>MEDICAL ADVICE:</strong></p>
+                    <p>Always seek the advice of your physician or other qualified health provider with any questions you may have regarding:</p>
+                    <ul>
+                        <li>Medical conditions</li>
+                        <li>Dietary changes or new nutrition plans</li>
+                        <li>Exercise programs or fitness activities</li>
+                        <li>Medications or supplements</li>
+                        <li>Health concerns or symptoms</li>
+                    </ul>
+                    <p>Never disregard professional medical advice or delay seeking it because of information you read or receive through VitalicX.</p>
+                    <p><strong>EMERGENCY SITUATIONS:</strong></p>
+                    <p>If you think you may have a medical emergency, call your doctor or emergency services immediately. VitalicX is not designed for emergency use.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Nutritional Data Accuracy</button>
+                <div class="collapsible-content">
+                    <p><strong>DATA SOURCES:</strong></p>
+                    <p>Nutritional information is sourced from third-party databases including USDA FoodData Central and Open Food Facts. While we strive for accuracy:</p>
+                    <ul>
+                        <li>Nutritional data may contain errors or be outdated</li>
+                        <li>Serving sizes and portions may vary from actual products</li>
+                        <li>Food preparation methods can significantly affect nutritional content</li>
+                        <li>Brand formulations may change without notice</li>
+                        <li>Database entries may be user-contributed and unverified</li>
+                    </ul>
+                    <p><strong>YOUR RESPONSIBILITY:</strong></p>
+                    <ul>
+                        <li>Always verify critical nutritional information independently</li>
+                        <li>Check product labels for the most accurate and current information</li>
+                        <li>Consult a registered dietitian for professional nutrition guidance</li>
+                        <li>Use the App's data as estimates, not absolute values</li>
+                    </ul>
+                    <p><strong>NO LIABILITY:</strong></p>
+                    <p>We are not liable for decisions made based on nutritional data provided by the App or for any health consequences resulting from reliance on such data.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">User Responsibilities</button>
+                <div class="collapsible-content">
+                    <p>As a user of VitalicX, you agree to:</p>
+                    <ul>
+                        <li>Use the App in compliance with all applicable laws and regulations</li>
+                        <li>Provide accurate and truthful information when creating content</li>
+                        <li>Respect intellectual property rights of others</li>
+                        <li>Not use the App to upload, post, or transmit any unlawful, harmful, or objectionable content</li>
+                        <li>Not attempt to interfere with or disrupt the App's functionality</li>
+                        <li>Not use the App to impersonate any person or entity</li>
+                        <li>Not collect or harvest information about other users</li>
+                        <li>Keep your device secure and protect your account credentials</li>
+                        <li>Comply with any dietary restrictions or medical advice from your healthcare provider</li>
+                        <li>Not use the App for any commercial purposes without our express written permission</li>
+                        <li>Not share account credentials with others</li>
+                    </ul>
+                    <p><strong>PROHIBITED USES:</strong></p>
+                    <p>You may not use VitalicX to:</p>
+                    <ul>
+                        <li>Engage in any illegal activities</li>
+                        <li>Violate any applicable laws or regulations</li>
+                        <li>Infringe on intellectual property rights</li>
+                        <li>Transmit viruses, malware, or harmful code</li>
+                        <li>Spam, harass, or abuse other users or our support team</li>
+                        <li>Attempt to reverse engineer or hack the App</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Intellectual Property</button>
+                <div class="collapsible-content">
+                    <p><strong>OWNERSHIP:</strong></p>
+                    <p>VitalicX and all its original content, features, functionality, design, code, and trade dress are owned by VitalicX and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
+                    <p><strong>THIRD-PARTY CONTENT:</strong></p>
+                    <ul>
+                        <li>Nutritional data from USDA FoodData Central is in the public domain</li>
+                        <li>Open Food Facts data is licensed under the Open Database License (ODbL)</li>
+                        <li>Product names and trademarks are property of their respective owners</li>
+                    </ul>
+                    <p><strong>FEEDBACK:</strong></p>
+                    <p>If you provide feedback, suggestions, or ideas about VitalicX, you grant us the right to use such feedback without restriction or compensation to you.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Disclaimers and Warranties</button>
+                <div class="collapsible-content">
+                    <p><strong>"AS IS" AND "AS AVAILABLE":</strong></p>
+                    <p>VitalicX is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied.</p>
+                    <p><strong>NO WARRANTIES:</strong></p>
+                    <p>We do NOT warrant that:</p>
+                    <ul>
+                        <li>The App will be uninterrupted, timely, secure, or error-free</li>
+                        <li>The results obtained from using the App will be accurate or reliable</li>
+                        <li>The quality of any data, information, or services obtained through the App will meet your expectations</li>
+                        <li>Any errors in the App will be corrected</li>
+                    </ul>
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+                    <ul>
+                        <li>Warranties of merchantability</li>
+                        <li>Fitness for a particular purpose</li>
+                        <li>Non-infringement</li>
+                        <li>Accuracy, reliability, or completeness of content</li>
+                    </ul>
+                    <p><strong>JURISDICTION-SPECIFIC RIGHTS:</strong></p>
+                    <p>Some jurisdictions do not allow the exclusion of certain warranties, so some of the above exclusions may not apply to you.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Limitation of Liability</button>
+                <div class="collapsible-content">
+                    <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong></p>
+                    <p>VitalicX and its affiliates, officers, employees, agents, partners, and licensors shall NOT be liable for any:</p>
+                    <ul>
+                        <li>Indirect, incidental, special, consequential, or punitive damages</li>
+                        <li>Loss of profits, revenue, data, or use</li>
+                        <li>Business interruption</li>
+                        <li>Personal injury or property damage</li>
+                        <li>Errors or omissions in content</li>
+                        <li>Any damages resulting from your use or inability to use the App</li>
+                    </ul>
+                    <p>This limitation applies whether the alleged liability is based on contract, tort, negligence, strict liability, or any other basis, even if we have been advised of the possibility of such damages.</p>
+                    <p><strong>MAXIMUM LIABILITY:</strong></p>
+                    <p>In no event shall our total liability to you for all damages, losses, and causes of action exceed the amount you have paid to us in the twelve (12) months prior to the claim (or $100 USD if you have not made any payments).</p>
+                    <p><strong>ESSENTIAL PURPOSE:</strong></p>
+                    <p>You acknowledge that these limitations of liability are an essential element of the agreement between you and VitalicX, and that we would not provide the App without these limitations.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Indemnification</button>
+                <div class="collapsible-content">
+                    <p>You agree to indemnify, defend, and hold harmless VitalicX and its affiliates, officers, directors, employees, agents, and licensors from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from:</p>
+                    <ul>
+                        <li>Your use or misuse of the App</li>
+                        <li>Your violation of these Terms</li>
+                        <li>Your violation of any rights of another party</li>
+                        <li>Your violation of any applicable laws or regulations</li>
+                        <li>Any content you submit, post, or transmit through the App</li>
+                        <li>Any health decisions made based on information from the App</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Modifications to Terms</button>
+                <div class="collapsible-content">
+                    <p>We reserve the right to modify or replace these Terms at any time at our sole discretion.</p>
+                    <p><strong>NOTIFICATION OF CHANGES:</strong></p>
+                    <p>We will provide notice of material changes by:</p>
+                    <ul>
+                        <li>Displaying a prominent notice in the App</li>
+                        <li>Sending an email notification (if you provided an email address)</li>
+                        <li>Updating the "Last Updated" date at the top of these Terms</li>
+                    </ul>
+                    <p><strong>ACCEPTANCE OF CHANGES:</strong></p>
+                    <ul>
+                        <li>Your continued use of the App after changes become effective constitutes acceptance of the modified Terms</li>
+                        <li>If you do not agree to the new Terms, you must stop using the App</li>
+                    </ul>
+                    <p>It is your responsibility to review these Terms periodically for changes.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Termination</button>
+                <div class="collapsible-content">
+                    <p><strong>TERMINATION BY YOU:</strong></p>
+                    <p>You may stop using the App at any time by:</p>
+                    <ul>
+                        <li>Deleting the App from your device</li>
+                        <li>Canceling your subscription (if applicable)</li>
+                        <li>Deleting your account through the App settings</li>
+                    </ul>
+                    <p><strong>TERMINATION BY US:</strong></p>
+                    <p>We may terminate or suspend your access to the App immediately, without prior notice or liability, for any reason, including:</p>
+                    <ul>
+                        <li>Breach of these Terms</li>
+                        <li>Violation of applicable laws</li>
+                        <li>Fraudulent or illegal activity</li>
+                        <li>Abuse of the App or our support team</li>
+                        <li>At our sole discretion for any other reason</li>
+                    </ul>
+                    <p><strong>EFFECT OF TERMINATION:</strong></p>
+                    <p>Upon termination:</p>
+                    <ul>
+                        <li>Your right to use the App immediately ceases</li>
+                        <li>All data stored locally on your device remains your property</li>
+                        <li>We are not obligated to maintain or provide you with any data</li>
+                        <li>Subscription fees are non-refundable unless required by law</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Governing Law and Dispute Resolution</button>
+                <div class="collapsible-content">
+                    <p><strong>GOVERNING LAW:</strong></p>
+                    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Utah, USA, without regard to its conflict of law provisions.</p>
+                    <p><strong>DISPUTE RESOLUTION:</strong></p>
+                    <p>Any dispute arising out of or relating to these Terms or the App shall be resolved through:</p>
+                    <ol>
+                        <li>Good faith negotiation between the parties</li>
+                        <li>Mediation, if negotiation fails</li>
+                        <li>Binding arbitration or court proceedings as a last resort</li>
+                    </ol>
+                    <p><strong>JURISDICTION:</strong></p>
+                    <p>You agree to submit to the personal jurisdiction of the courts located in the State of Utah, USA for the purpose of litigating all such claims or disputes.</p>
+                    <p><strong>CLASS ACTION WAIVER:</strong></p>
+                    <p>You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Severability</button>
+                <div class="collapsible-content">
+                    <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving its intent, or if that is not possible, such provision shall be severed from these Terms.</p>
+                    <p>The invalidity or unenforceability of any provision shall not affect the validity or enforceability of any other provision of these Terms, which shall remain in full force and effect.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Entire Agreement</button>
+                <div class="collapsible-content">
+                    <p>These Terms, together with our Privacy Policy and any other legal notices published by us in the App, constitute the entire agreement between you and VitalicX concerning the App and supersede all prior or contemporaneous agreements, understandings, and communications, whether oral or written, between you and VitalicX regarding the App.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible-header">Contact Information</button>
+                <div class="collapsible-content">
+                    <p>For questions about these Terms of Service, please contact us:</p>
+                    <p>Email: tylerjudson223@gmail.com</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>2025 Tyler Judson | <a href="index.html" style="color: var(--accent-primary);">Back to Portfolio</a></p>
         </div>
     </footer>
+
+    <script>
+        // Collapsible section functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+
+        // Legal modal functions
+        function openLegalModal(type) {
+            const modal = document.getElementById(type + '-modal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLegalModal(type) {
+            const modal = document.getElementById(type + '-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>
