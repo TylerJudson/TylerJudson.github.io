@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CourseSync - AI-Powered Course Management for Students by Tyler Judson">
+    <meta name="author" content="Tyler Judson">
+    <title>CourseSync | Tyler Judson</title>
+    <link rel="stylesheet" href="project-page.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">TJ</a>
+            <a href="index.html#projects" class="back-link">
+                ← Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-container">
+            <div class="app-icon-placeholder">📚</div>
+            <h1 class="project-title">CourseSync</h1>
+            <p class="project-subtitle">
+                AI-Powered Course Management for Students
+            </p>
+            <div class="project-badge-container">
+                <span class="hero-badge badge-status">In Development</span>
+                <span class="hero-badge badge-status">Desktop App</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="content-section">
+        <h2 class="section-title">Intelligent Course Management</h2>
+        <p class="section-description">
+            CourseSync is an educational productivity application designed specifically for students. It seamlessly
+            syncs assignments from Canvas LMS and BYU Learning Suite, providing a unified view of all your coursework
+            with AI-powered assistance to help you succeed.
+        </p>
+        <p class="section-description">
+            Built with Flutter for native desktop performance and powered by RAG (Retrieval-Augmented Generation)
+            technology, CourseSync combines comprehensive course management with an intelligent AI tutor that
+            understands your specific course materials and can answer questions instantly.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="content-section">
+        <h2 class="section-title">Core Features</h2>
+        <div class="professional-features">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Assignment Sync</h3>
+                <p class="pro-feature-description">
+                    Automatically fetch and sync assignments from Canvas LMS and BYU Learning Suite. Stay on top
+                    of all your deadlines with a unified view of coursework across multiple platforms.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">AI Chat Tutor</h3>
+                <p class="pro-feature-description">
+                    Ask questions about your course materials and get instant, context-aware answers. The AI tutor
+                    uses RAG technology to retrieve relevant information from your course documents and provide
+                    accurate, helpful responses.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Document Management</h3>
+                <p class="pro-feature-description">
+                    Store and organize all your course documents in one place. Documents are automatically indexed
+                    and made searchable, enabling the AI to provide accurate answers based on your actual course content.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Multi-Platform Support</h3>
+                <p class="pro-feature-description">
+                    Native desktop application for macOS, Windows, and Linux. Enjoy a consistent, high-performance
+                    experience on whichever platform you prefer.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Bring Your Own Key (BYOK)</h3>
+                <p class="pro-feature-description">
+                    Use your own API keys from OpenAI, Anthropic, or Google for AI features. You have full control
+                    over your AI provider and usage costs.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Privacy First</h3>
+                <p class="pro-feature-description">
+                    Your course data stays local on your device. No server required - all data processing happens
+                    on your machine with optional cloud AI for the chat features.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="content-section">
+        <h2 class="section-title">Built with Modern Technologies</h2>
+        <p class="section-description">
+            CourseSync leverages cutting-edge technologies to deliver a powerful, efficient desktop application
+            with state-of-the-art AI capabilities.
+        </p>
+        <div class="tech-stack">
+            <span class="tech-tag">Flutter Desktop</span>
+            <span class="tech-tag">ObjectBox Database</span>
+            <span class="tech-tag">RAG (Retrieval-Augmented Generation)</span>
+            <span class="tech-tag">Vector Search (HNSW)</span>
+            <span class="tech-tag">Riverpod State Management</span>
+            <span class="tech-tag">Node.js Scraper</span>
+            <span class="tech-tag">Playwright</span>
+        </div>
+        <p class="section-description" style="margin-top: 2rem;">
+            The application uses ObjectBox for local-first data storage with HNSW vector indexing for lightning-fast
+            semantic search. Course materials are automatically embedded and indexed, enabling the AI to quickly
+            retrieve relevant context for answering your questions.
+        </p>
+    </section>
+
+    <!-- Architecture Highlights -->
+    <section class="content-section">
+        <h2 class="section-title">Technical Excellence</h2>
+        <div class="professional-features">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">RAG-Powered AI</h3>
+                <p class="pro-feature-description">
+                    Advanced Retrieval-Augmented Generation system that combines vector search with large language
+                    models to provide accurate, context-aware answers based on your actual course materials.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Local-First Architecture</h3>
+                <p class="pro-feature-description">
+                    All your data stays on your device using ObjectBox for fast, reliable local storage. No server
+                    dependencies mean you can work offline and maintain complete privacy.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Intelligent Scraping</h3>
+                <p class="pro-feature-description">
+                    Node.js subprocess with Playwright for reliable, efficient scraping of Canvas and Learning Suite.
+                    Handles authentication flows and extracts course data seamlessly.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Multi-Provider AI</h3>
+                <p class="pro-feature-description">
+                    Support for OpenAI, Anthropic Claude, and Google Gemini. Choose the AI provider that best fits
+                    your needs and budget, or bring your own API key.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="content-section">
+        <h2 class="section-title">Pricing Plans</h2>
+        <p class="section-description">
+            CourseSync offers flexible pricing to fit different needs and budgets.
+        </p>
+        <div class="professional-features">
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">BYOK Plan - $5/month</h3>
+                <p class="pro-feature-description">
+                    Bring your own API keys from OpenAI, Anthropic, or Google. Full access to all features including
+                    assignment sync, document management, and AI chat. You control your AI costs directly.
+                </p>
+            </div>
+            <div class="pro-feature-item">
+                <h3 class="pro-feature-title">Powered Plan - $15/month</h3>
+                <p class="pro-feature-description">
+                    AI powered by CourseSync with no API key required. Includes generous usage limits for AI chat
+                    and document processing, plus all core features. Perfect for hassle-free access.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Section -->
+    <section class="content-section cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Coming Soon</h2>
+            <p class="cta-description">
+                CourseSync is currently in active development. The application is being built
+                with a focus on performance, reliability, and user experience. Sign up for updates
+                to be notified when CourseSync launches.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:tylerjudson223@gmail.com?subject=CourseSync%20Updates" class="btn btn-primary">
+                    Request Updates
+                </a>
+                <a href="https://github.com/tylerjudson" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-section">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-description">Interested in CourseSync or have questions?</p>
+        <div class="cta-buttons" style="justify-content: flex-start;">
+            <a href="mailto:tylerjudson223@gmail.com?subject=CourseSync%20Inquiry" class="btn btn-primary">
+                Contact Me
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>2025 Tyler Judson | <a href="index.html" style="color: var(--accent-primary);">Back to Portfolio</a></p>
+        </div>
+    </footer>
+</body>
+</html>
