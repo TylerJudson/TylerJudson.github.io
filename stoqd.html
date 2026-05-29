@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stoqd — pantry management app. Scan receipts, manage recipes, and generate smart grocery lists. Support, FAQs, and contact.">
+    <meta name="author" content="Tyler Judson">
+    <meta name="theme-color" content="#0a0e17">
+    <title>Stoqd — Pantry Management & Support</title>
+    <link rel="icon" type="image/png" href="stoqd-icon.png">
+    <link rel="stylesheet" href="project-page.css">
+    <style>
+        /* Nav additions (project-page.css already has .nav, .nav-container, .nav-logo) */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--accent-light); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+            color: #fff !important;
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+        }
+        .nav-cta:hover { color: #fff !important; opacity: 0.9; }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero additions */
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto 2rem auto;
+        }
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Centered section heading variant */
+        .section-title-centered {
+            display: block;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+        .section-title-centered::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-description-centered {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* How It Works */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .step-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem 1.75rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-light));
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ accordion (native <details>) */
+        .faq-list { margin-top: 2rem; }
+        .faq-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.2s ease;
+        }
+        .faq-item[open] { border-color: var(--accent-primary); }
+        .faq-item summary {
+            cursor: pointer;
+            padding: 1.1rem 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+';
+            color: var(--accent-light);
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.2s ease;
+        }
+        .faq-item[open] summary::after { content: '−'; }
+        .faq-answer {
+            padding: 0 1.5rem 1.25rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-answer p + p { margin-top: 0.75rem; }
+
+        /* Contact */
+        .contact-block {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .contact-block p { color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
+
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(10, 14, 23, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.25rem 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            .hero-description { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#top" class="nav-logo">Stoqd</a>
+            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Toggle navigation">&#9776;</button>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#support">Support</a>
+                <a href="index.html">Portfolio</a>
+                <a href="#contact" class="nav-cta">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-hero" id="top">
+        <div class="hero-container">
+            <img src="stoqd-icon.png" alt="Stoqd" class="app-icon-placeholder">
+            <h1 class="project-title">Stoqd</h1>
+            <p class="project-subtitle">Pantry management that just works</p>
+            <p class="hero-description">
+                Scan receipts, manage recipes that deduct ingredients when you cook,
+                and generate smart grocery lists — all local-first, with no account required.
+            </p>
+            <div class="project-badge-container">
+                <span class="hero-badge badge-status">iOS</span>
+                <span class="hero-badge badge-status">Android (planned)</span>
+            </div>
+            <div class="hero-cta-group">
+                <a href="#support" class="btn btn-primary">Get Support</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="features">
+        <h2 class="section-title section-title-centered">Everything You Need to Manage Your Pantry</h2>
+        <p class="section-description section-description-centered">
+            Stoqd brings receipt scanning, recipe management, and grocery planning together — fast, private, and offline-first.
+        </p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-light)"><path d="M3 7V5a2 2 0 012-2h2"/><path d="M17 3h2a2 2 0 012 2v2"/><path d="M21 17v2a2 2 0 01-2 2h-2"/><path d="M7 21H5a2 2 0 01-2-2v-2"/><rect x="7" y="7" width="10" height="10" rx="1"/></svg></span>
+                <h3 class="feature-title">Receipt Scanning</h3>
+                <p class="feature-description">
+                    Snap a photo of your grocery receipt and Stoqd extracts items, quantities, and units automatically — powered by Google Gemini vision.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-light)"><rect x="3" y="5" width="18" height="14" rx="1"/><line x1="7" y1="8" x2="7" y2="16"/><line x1="10" y1="8" x2="10" y2="16"/><line x1="13" y1="8" x2="13" y2="16"/><line x1="16" y1="8" x2="16" y2="16"/></svg></span>
+                <h3 class="feature-title">Barcode Lookup</h3>
+                <p class="feature-description">
+                    Three-tier lookup: a bundled offline product database first, then Open Food Facts, then Go-UPC as a fallback. Fast, even with no signal.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-light)"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+                <h3 class="feature-title">Smart Recipes</h3>
+                <p class="feature-description">
+                    Import recipes from any URL or a photo of a cookbook page. Stoqd parses ingredients and links them to your pantry automatically.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-light)"><path d="M3 11h18"/><path d="M5 11V7a4 4 0 014-4h6a4 4 0 014 4v4"/><path d="M5 11l1.5 8a2 2 0 002 1.5h7a2 2 0 002-1.5L19 11"/></svg></span>
+                <h3 class="feature-title">Cook & Deduct</h3>
+                <p class="feature-description">
+                    Tap "I Made This" and Stoqd deducts the ingredients you used. A quick post-cook prompt lets you confirm what's still in stock.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-light)"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+                <h3 class="feature-title">Grocery Lists</h3>
+                <p class="feature-description">
+                    Generate a grocery list from selected recipes minus what's already in your pantry. Check items off as you shop, then transfer to pantry in one tap.
+                </p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-light)"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+                <h3 class="feature-title">Privacy First</h3>
+                <p class="feature-description">
+                    No account. No tracking. All your pantry, recipe, and grocery data lives in a local database on your device — never on our servers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="how-it-works">
+        <h2 class="section-title section-title-centered">How It Works</h2>
+        <div class="how-it-works-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Stock your pantry</h3>
+                <p class="step-description">Scan a receipt, scan a barcode, or quick-add items by typing or speaking a free-text list.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Plan meals</h3>
+                <p class="step-description">Add recipes and see which ones you can cook right now based on what's already in your pantry.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Cook & restock</h3>
+                <p class="step-description">Tap "I Made This" to deduct ingredients automatically, then let Stoqd build your next grocery list.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="support">
+        <h2 class="section-title section-title-centered">Support & FAQ</h2>
+        <p class="section-description section-description-centered">
+            Common questions and troubleshooting. Can't find what you're looking for? <a href="#contact" style="color:var(--accent-light)">Reach out below</a>.
+        </p>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>How do I scan a receipt?</summary>
+                <div class="faq-answer">
+                    <p>From the Dashboard or the Pantry tab, tap the camera icon and choose "Scan Receipt." Frame the full receipt in good light and snap the photo — Stoqd sends it to Google Gemini for parsing and shows you a confirmation screen where you can edit items before adding them to your pantry.</p>
+                    <p>You can also import a PDF receipt from your Files app using the document picker.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Why can't Stoqd find my barcode?</summary>
+                <div class="faq-answer">
+                    <p>Stoqd checks three sources in order: a bundled offline database, the Open Food Facts community catalog, and Go-UPC. Regional or store-brand products sometimes aren't in any of these — when that happens, you can add the item manually and Stoqd will remember it for next time.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>How does "I Made This" work?</summary>
+                <div class="faq-answer">
+                    <p>From any recipe detail screen, tap "I Made This" and Stoqd walks you through a three-step flow: choose servings, preview which ingredients will be deducted, then confirm what's still in stock. The post-cook stock check is the safety net — even if amounts weren't tracked precisely, you can mark items as Plenty, Low, or Out in one tap.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>How do I import a recipe from a website?</summary>
+                <div class="faq-answer">
+                    <p>From the Recipes tab, tap the add button and choose "Import from URL." Paste the recipe link — Stoqd reads structured recipe data when the site provides it, and falls back to AI parsing when it doesn't. You can also import from a photo of a cookbook page.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Where is my data stored?</summary>
+                <div class="faq-answer">
+                    <p>Everything — your pantry, recipes, grocery lists, and activity history — lives in a local SQLite database on your device. There is no Stoqd server and no account to create.</p>
+                    <p>Receipt photos, recipe photos, and pasted recipe text are sent to Google's Gemini API for parsing. Stoqd does not retain copies of these on any server. Barcode lookups query the public Open Food Facts and Go-UPC services anonymously.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>How do I reset all my data?</summary>
+                <div class="faq-answer">
+                    <p>Open Settings from the Dashboard and scroll to "Reset Data." This wipes the local database and returns Stoqd to a fresh state. Uninstalling the app also removes all data.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>Stoqd misread my receipt — can I fix it?</summary>
+                <div class="faq-answer">
+                    <p>Yes. After scanning, you'll see a review screen with every parsed item. Edit names, quantities, units, or categories before tapping "Add to Pantry." You can also delete misread rows entirely.</p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary>I found a bug or have a feature request.</summary>
+                <div class="faq-answer">
+                    <p>Please email me — see the Contact section below. The in-app "Send Feedback" option will also open a pre-filled report. I read every message.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section class="content-section" id="contact">
+        <h2 class="section-title section-title-centered">Contact</h2>
+        <div class="contact-block">
+            <p>
+                Questions, bug reports, feature ideas, or anything else — drop me a line.
+                Include "Stoqd" in the subject so I can route it quickly.
+            </p>
+            <a href="mailto:tjudson@byu.edu?subject=Stoqd%20Support" class="btn btn-primary">Email Support</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>
+            © 2026 Tyler Judson ·
+            <a href="stoqd-privacy.html">Privacy Policy</a> ·
+            <a href="stoqd-terms.html">Terms of Use</a> ·
+            <a href="index.html">Portfolio</a>
+        </p>
+    </footer>
+</body>
+</html>

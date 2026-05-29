@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stoqd Privacy Policy">
+    <meta name="theme-color" content="#0a0e17">
+    <title>Privacy Policy — Stoqd</title>
+    <link rel="icon" type="image/png" href="stoqd-icon.png">
+    <link rel="stylesheet" href="project-page.css">
+    <style>
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--accent-light); }
+
+        .legal-page {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 8rem 1.5rem 6rem 1.5rem;
+        }
+        .legal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .legal-updated {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+        .legal-intro {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 2.5rem;
+        }
+        .legal-section {
+            margin-bottom: 2.25rem;
+        }
+        .legal-section h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.85rem;
+        }
+        .legal-section p, .legal-section li {
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 0.85rem;
+        }
+        .legal-section ul {
+            padding-left: 1.5rem;
+        }
+        .legal-section a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        .legal-section a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .legal-page { padding-top: 6rem; }
+            .legal-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="stoqd.html" class="nav-logo">Stoqd</a>
+            <div class="nav-links">
+                <a href="stoqd.html#features">Features</a>
+                <a href="stoqd.html#support">Support</a>
+                <a href="stoqd-terms.html">Terms</a>
+                <a href="index.html">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="legal-page">
+        <h1 class="legal-title">Privacy Policy</h1>
+        <p class="legal-updated">Last updated: May 29, 2026</p>
+
+        <p class="legal-intro">
+            Stoqd is a pantry management app built and maintained by Tyler Judson. This policy explains what data the app handles and how. The short version: Stoqd has no servers and no account system — your data stays on your device.
+        </p>
+
+        <div class="legal-section">
+            <h2>1. Information We Collect</h2>
+            <p><strong>None on a server.</strong> Stoqd does not require an account, does not have user logins, and does not transmit your pantry data, recipes, grocery lists, or activity history to any server we control.</p>
+            <p>All app data is stored locally on your device in a SQLite database. Images you save to recipes are stored in your app's local documents directory.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>2. Third-Party Services</h2>
+            <p>Stoqd uses the following third-party services to provide its features. When you trigger one of these features, the relevant data is sent directly from your device to the third party:</p>
+            <ul>
+                <li><strong>Google Gemini API</strong> — Receipt photos, recipe photos, and recipe text you choose to import are sent to Google's Gemini API for parsing. Your data is subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. Stoqd does not store copies of these images or text on any server.</li>
+                <li><strong>Open Food Facts</strong> — Barcode scans query the public Open Food Facts product database. Queries are anonymous and contain only the barcode.</li>
+                <li><strong>Go-UPC</strong> — If Open Food Facts has no match, Stoqd falls back to the Go-UPC barcode service. Queries are anonymous and contain only the barcode.</li>
+            </ul>
+        </div>
+
+        <div class="legal-section">
+            <h2>3. What Stoqd Does Not Do</h2>
+            <ul>
+                <li>No user accounts and no authentication.</li>
+                <li>No analytics or telemetry.</li>
+                <li>No advertising and no ad networks.</li>
+                <li>No third-party trackers or fingerprinting.</li>
+                <li>No selling or sharing of personal information.</li>
+            </ul>
+        </div>
+
+        <div class="legal-section">
+            <h2>4. Your Choices</h2>
+            <p>You can wipe all locally stored data at any time using the "Reset Data" option in Settings. Uninstalling the app also removes all data Stoqd has stored on your device.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>5. Children's Privacy</h2>
+            <p>Stoqd is not directed at children under 13. Because the app does not collect personal information, it does not knowingly collect information from anyone, including children.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>6. Changes to This Policy</h2>
+            <p>If this policy materially changes, the updated version will be posted at this URL with a revised "Last updated" date. Continued use of Stoqd after changes constitutes acceptance of the updated policy.</p>
+        </div>
+
+        <div class="legal-section">
+            <h2>7. Contact</h2>
+            <p>Questions about this Privacy Policy? Email <a href="mailto:tjudson@byu.edu?subject=Stoqd%20Privacy">tjudson@byu.edu</a>.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>
+            © 2026 Tyler Judson ·
+            <a href="stoqd.html">Stoqd</a> ·
+            <a href="stoqd-terms.html">Terms of Use</a> ·
+            <a href="index.html">Portfolio</a>
+        </p>
+    </footer>
+</body>
+</html>
